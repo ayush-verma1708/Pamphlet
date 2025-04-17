@@ -10,11 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // CORS middleware - Add this before other middleware
-app.use(cors({
-  origin: 'http://localhost:3000', // Your React app's origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
-}));
+app.use(cors()); // Allow all origins
 
 // Middleware to parse JSON
 app.use(bodyParser.json());
@@ -28,6 +24,10 @@ mongoose.connect(mongoURI, {})
 
 // Use product routes
 app.use('/products', productRoutes);
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the Product API!');
+});
 
 // Start server
 app.listen(PORT, () => {

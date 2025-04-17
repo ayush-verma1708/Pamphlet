@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8000/products');
+        const response = await fetch('https://pamphlet.onrender.com/products');
         const data = await response.json();
         setProducts(data);
         setLoading(false);
@@ -84,7 +84,7 @@ function App() {
 
   const openWhatsApp = (product) => {
     const message = `Hi, I'm interested in the ${product.name}. Can you provide more information?`;
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/919650534838?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
